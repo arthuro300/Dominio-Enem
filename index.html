@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Domínio Enem</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <link rel="manifest" href="manifest.json">
+<meta name="theme-color" content="#f7f6f2">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+</head>
+
+<body>
+
+    <div class="app">
+
+        <!-- ================= SIDEBAR ================= -->
+
+        <aside class="sidebar">
+
+            <div class="logo">
+                <div class="logo-placeholder"></div>
+
+                <span>Domínio Enem</span>
+            </div>
+
+            <nav class="sidebar-menu">
+
+                <div class="menu-title">
+                    Área de Estudo
+                </div>
+
+                <button class="menu-item active" data-page="questoes">
+                    <span class="menu-icon">▣</span>
+                    <span>Questões</span>
+                </button>
+
+                <button class="menu-item" data-page="provas">
+                    <span class="menu-icon">▤</span>
+                    <span>Provas</span>
+                </button>
+
+                <button class="menu-item" data-page="simulados">
+                    <span class="menu-icon">▤</span>
+                    <span>Simulados</span>
+                </button>
+
+                <button class="menu-item" data-page="historico">
+                    <span class="menu-icon">◷</span>
+                    <span>Histórico</span>
+                </button>
+
+                <button class="menu-item" data-page="configuracoes">
+                    <span class="menu-icon">⚙</span>
+                    <span>Configurações</span>
+                </button>
+
+            </nav>
+
+            <div class="sidebar-bottom">
+
+                <div class="menu-title">
+                    Conta
+                </div>
+
+                <button class="menu-item" data-page="conta">
+                    <span class="menu-icon">○</span>
+                    <span>Conta</span>
+                </button>
+
+            </div>
+
+        </aside>
+
+
+        <!-- ================= ÁREA PRINCIPAL ================= -->
+
+        <main class="main">
+
+            <header class="topbar">
+
+                <button
+                    class="sidebar-toggle"
+                    id="sidebarToggle"
+                    title="Menu"
+                >
+                    ☰
+                </button>
+
+
+                <div class="top-search">
+
+                    <span class="search-icon">⌕</span>
+
+                    <input
+                        type="text"
+                        id="searchInput"
+                        placeholder="Buscar questões..."
+                    >
+
+                    <span class="search-shortcut">
+                        Ctrl K
+                    </span>
+
+                </div>
+
+
+                <button
+                    class="top-simulado-button"
+                    id="topSimuladoButton"
+                >
+                    ▣
+                    Novo Simulado
+                </button>
+
+            </header>
+
+
+            <!-- O conteúdo das páginas aparece aqui -->
+
+            <section
+                class="content"
+                id="content"
+            ></section>
+
+        </main>
+
+    </div>
+
+
+    <!-- ================= FUNDO DO FILTRO ================= -->
+
+    <div
+        class="filter-overlay"
+        id="filterOverlay"
+    ></div>
+
+
+    <!-- ================= PAINEL DE FILTROS ================= -->
+
+    <aside
+        class="filter-panel"
+        id="filterPanel"
+    >
+
+        <div class="filter-header">
+
+            <h2>Filtros</h2>
+
+            <button
+                class="close-filter"
+                id="closeFilter"
+            >
+                ×
+            </button>
+
+        </div>
+
+
+        <!-- DATA -->
+
+        <div class="filter-section">
+
+            <h3>Data</h3>
+
+            <div class="filter-grid">
+
+                <label class="filter-option">
+                    <input
+                        type="checkbox"
+                        class="filter-input"
+                        data-type="ano"
+                        value="2025"
+                    >
+                    <span>2025</span>
+                </label>
+
+                <label class="filter-option">
+                    <input
+                        type="checkbox"
+                        class="filter-input"
+                        data-type="ano"
+                        value="2024"
+                    >
+                    <span>2024</span>
+                </label>
+
+                <label class="filter-option">
+                    <input
+                        type="checkbox"
+                        class="filter-input"
+                        data-type="ano"
+                        value="2023"
+                    >
+                    <span>2023</span>
+                </label>
+
+                <label class="filter-option">
+                    <input
+                        type="checkbox"
+                        class="filter-input"
+                        data-type="ano"
+                        value="2022"
+                    >
+                    <span>2022</span>
+                </label>
+
+                <label class="filter-option">
+                    <input
+                        type="checkbox"
+                        class="filter-input"
+                        data-type="ano"
+                        value="2021"
+                    >
+                    <span>2021</span>
+                </label>
+
+                <label class="filter-option">
+                    <input
+                        type="checkbox"
+                        class="filter-input"
+                        data-type="ano"
+                        value="2020"
+                    >
+                    <span>2020</span>
+                </label>
+
+                <label class="filter-option">
+                    <input
+                        type="checkbox"
+                        class="filter-input"
+                        data-type="ano"
+                        value="2019"
+                    >
+                    <span>2019</span>
+                </label>
+
+                <label class="filter-option">
+                    <input
+                        type="checkbox"
+                        class="filter-input"
+                        data-type="ano"
+                        value="2018"
+                    >
+                    <span>2018</span>
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <hr>
+
+
+        <!-- ÁREA -->
+
+        <div class="filter-section">
+
+            <h3>Área</h3>
+
+            <div class="filter-list">
+
+                <label class="filter-option">
+
+                    <input
+                        type="checkbox"
+                        class="filter-input"
+                        data-type="area"
+                        value="exatas"
+                    >
+
+                    <span>Exatas</span>
+
+                </label>
+
+
+                <label class="filter-option">
+
+                    <input
+                        type="checkbox"
+                        class="filter-input"
+                        data-type="area"
+                        value="humanas"
+                    >
+
+                    <span>Humanas</span>
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <hr>
+
+
+        <!-- VERTENTE -->
+
+        <div class="filter-section">
+
+            <h3>Vertente</h3>
+
+            <div class="filter-list">
+
+                <label class="filter-option">
+
+                    <input
+                        type="checkbox"
+                        class="filter-input"
+                        data-type="vertente"
+                        value="natureza"
+                    >
+
+                    <span>Ciências da Natureza</span>
+
+                </label>
+
+
+                <label class="filter-option">
+
+                    <input
+                        type="checkbox"
+                        class="filter-input"
+                        data-type="vertente"
+                        value="matematica"
+                    >
+
+                    <span>Matemática</span>
+
+                </label>
+
+
+                <label class="filter-option">
+
+                    <input
+                        type="checkbox"
+                        class="filter-input"
+                        data-type="vertente"
+                        value="linguagens"
+                    >
+
+                    <span>Linguagens</span>
+
+                </label>
+
+
+                <label class="filter-option">
+
+                    <input
+                        type="checkbox"
+                        class="filter-input"
+                        data-type="vertente"
+                        value="humanas"
+                    >
+
+                    <span>Ciências Humanas</span>
+
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <hr>
+
+
+        <!-- MATÉRIA -->
+
+        <div class="filter-section">
+
+            <h3>Matéria</h3>
+
+            <div class="filter-list">
+
+                <label class="filter-option">
+                    <input
+                        type="checkbox"
+                        class="filter-input"
+                        data-type="materia"
+                        value="espanhol"
+                    >
+                    <span>Espanhol</span>
+                </label>
+
+                <label class="filter-option">
+                    <input
+                        type="checkbox"
+                        class="filter-input"
+                        data-type="materia"
+                        value="ingles"
+                    >
+                    <span>Inglês</span>
+                </label>
+
+                <label class="filter-option">
+                    <input
+                        type="checkbox"
+                        class="filter-input"
+                        data-type="materia"
+                        value="portugues"
+                    >
+                    <span>Português</span>
+                </label>
+
+                <label class="filter-option">
+                    <input
+                        type="checkbox"
+                        class="filter-input"
+                        data-type="materia"
+                        value="artes"
+                    >
+                    <span>Artes</span>
+                </label>
+
+                <label class="filter-option">
+                    <input
+                        type="checkbox"
+                        class="filter-input"
+                        data-type="materia"
+                        value="educacao_fisica"
+                    >
+                    <span>Educação Física</span>
+                </label>
+
+                <label class="filter-option">
+                    <input
+                        type="checkbox"
+                        class="filter-input"
+                        data-type="materia"
+                        value="fisica"
+                    >
+                    <span>Física</span>
+                </label>
+
+                <label class="filter-option">
+                    <input
+                        type="checkbox"
+                        class="filter-input"
+                        data-type="materia"
+                        value="quimica"
+                    >
+                    <span>Química</span>
+                </label>
+
+                <label class="filter-option">
+                    <input
+                        type="checkbox"
+                        class="filter-input"
+                        data-type="materia"
+                        value="biologia"
+                    >
+                    <span>Biologia</span>
+                </label>
+
+                <label class="filter-option">
+                    <input
+                        type="checkbox"
+                        class="filter-input"
+                        data-type="materia"
+                        value="matematica"
+                    >
+                    <span>Matemática</span>
+                </label>
+
+                <label class="filter-option">
+                    <input
+                        type="checkbox"
+                        class="filter-input"
+                        data-type="materia"
+                        value="historia"
+                    >
+                    <span>História</span>
+                </label>
+
+                <label class="filter-option">
+                    <input
+                        type="checkbox"
+                        class="filter-input"
+                        data-type="materia"
+                        value="geografia"
+                    >
+                    <span>Geografia</span>
+                </label>
+
+                <label class="filter-option">
+                    <input
+                        type="checkbox"
+                        class="filter-input"
+                        data-type="materia"
+                        value="sociologia"
+                    >
+                    <span>Sociologia</span>
+                </label>
+
+                <label class="filter-option">
+                    <input
+                        type="checkbox"
+                        class="filter-input"
+                        data-type="materia"
+                        value="filosofia"
+                    >
+                    <span>Filosofia</span>
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <hr>
+
+
+        <!-- TRI -->
+
+        <div class="filter-section">
+
+            <h3>TRI</h3>
+
+            <div class="filter-list">
+
+                <label class="filter-option">
+                    <input
+                        type="checkbox"
+                        class="filter-input"
+                        data-type="tri"
+                        value="muito_facil"
+                    >
+                    <span>Muito fácil</span>
+                </label>
+
+                <label class="filter-option">
+                    <input
+                        type="checkbox"
+                        class="filter-input"
+                        data-type="tri"
+                        value="facil"
+                    >
+                    <span>Fácil</span>
+                </label>
+
+                <label class="filter-option">
+                    <input
+                        type="checkbox"
+                        class="filter-input"
+                        data-type="tri"
+                        value="medio"
+                    >
+                    <span>Médio</span>
+                </label>
+
+                <label class="filter-option">
+                    <input
+                        type="checkbox"
+                        class="filter-input"
+                        data-type="tri"
+                        value="dificil"
+                    >
+                    <span>Difícil</span>
+                </label>
+
+                <label class="filter-option">
+                    <input
+                        type="checkbox"
+                        class="filter-input"
+                        data-type="tri"
+                        value="muito_dificil"
+                    >
+                    <span>Muito difícil</span>
+                </label>
+
+            </div>
+
+        </div>
+
+
+        <div class="filter-actions">
+
+            <button
+                class="clear-filter"
+                id="clearFilters"
+            >
+                Limpar
+            </button>
+
+            <button
+                class="apply-filter"
+                id="applyFilters"
+            >
+                Aplicar filtros
+            </button>
+
+        </div>
+
+    </aside>
+
+
+    <script src="script.js"></script>
+
+</body>
+
+</html>
