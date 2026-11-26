@@ -1,12 +1,13 @@
 
-const CACHE_NAME = "dominio-enem-v1";
+const CACHE_NAME = "dominio-enem-v2";
 
 const FILES_TO_CACHE = [
   "./",
   "./index.html",
   "./style.css",
   "./script.js",
-  "./manifest.json"
+  "./manifest.json",
+  "./icons/icon.svg"
 ];
 
 self.addEventListener("install", (event) => {
